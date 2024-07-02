@@ -5,11 +5,7 @@ const Home = () => {
   return (
     <div>
       <Navbar></Navbar>
-
-      {/* Footer section */}
-      <div>
-        <Footer></Footer>
-      </div>
+      <Footer></Footer>
     </div>
   );
 };

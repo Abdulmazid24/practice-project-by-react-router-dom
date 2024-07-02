@@ -5,6 +5,9 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainLayouts from './Layouts/MainLayouts.jsx';
 import Home from './components/Home.jsx';
+import Blogs from './components/Blogs.jsx';
+import Bookmarks from './components/Bookmarks.jsx';
+import Footer from './components/Footer.jsx';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +17,18 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
+      },
+      {
+        path: '/',
+        element: <Footer></Footer>,
+      },
+      {
+        path: '/blogs',
+        element: <Blogs></Blogs>,
+      },
+      {
+        path: '/bookmarks',
+        element: <Bookmarks></Bookmarks>,
       },
     ],
   },

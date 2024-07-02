@@ -1,22 +1,40 @@
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
+  const [theme, setTheme] = useState('light');
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+    const localTheme = localStorage.getItem('theme');
+    document.querySelector('html').setAttribute('data-theme', localTheme);
+  }, [theme]);
+  const handleToggle = e => {
+    console.log(theme);
+    if (e.target.checked) {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  };
   return (
-    <div className="navbar bg-base-100 fixed">
+    <div className="navbar bg-base-100  shadow-lg px-4 z-10 h-14">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost gap-0 text-xl font-bold text-secondary">
+          Byte<span className="text-primary">Blaze</span>
+        </a>
       </div>
       <div className="flex-none">
-        <ul className="menu menu-horizontal flex gap-8">
+        <ul className="menu menu-horizontal flex gap-8 font-bold">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/blogs">Blogs</NavLink>
           <NavLink to="bookmarks">Bookmarks</NavLink>
         </ul>
         <label className="grid cursor-pointer place-items-center ml-8">
           <input
+            onChange={handleToggle}
             type="checkbox"
             value="synthwave"
-            className="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1"
+            className="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1  "
           />
           <svg
             className="stroke-base-100 fill-base-100 col-start-1 row-start-1"
