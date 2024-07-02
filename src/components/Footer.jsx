@@ -1,10 +1,10 @@
 const Footer = () => {
   return (
-    <footer className="footer footer-center bg-base-300 text-base-content p-4">
+    <footer className="footer footer-center bg-base-300 text-base-content p-4 mb-0">
       <aside>
         <p>
-          Copyright © ${new Date().getFullYear()} - All right reserved by ACME
-          Industries Ltd
+          Copyright © ${new Date().getFullYear()} - All right reserved by
+          ByteBlaze Ltd
         </p>
       </aside>
     </footer>

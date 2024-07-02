@@ -1,12 +1,15 @@
 import { Outlet } from 'react-router-dom';
-import Home from '../components/Home';
+
 import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 
 const MainLayouts = () => {
   return (
     <div>
-      <Home></Home>
-      <Outlet></Outlet>
+      <Navbar></Navbar>
+      <div>
+        <Outlet></Outlet>
+      </div>
       <Footer></Footer>
     </div>
   );

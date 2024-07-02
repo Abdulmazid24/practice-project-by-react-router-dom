@@ -25,9 +25,30 @@ const Navbar = () => {
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal flex gap-8 font-bold">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/blogs">Blogs</NavLink>
-          <NavLink to="bookmarks">Bookmarks</NavLink>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? 'text-primary' : 'font-bold'
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/blogs"
+            className={({ isActive }) =>
+              isActive ? 'text-primary' : 'font-bold'
+            }
+          >
+            Blogs
+          </NavLink>
+          <NavLink
+            to="bookmarks"
+            className={({ isActive }) =>
+              isActive ? 'text-primary' : 'font-bold'
+            }
+          >
+            Bookmarks
+          </NavLink>
         </ul>
         <label className="grid cursor-pointer place-items-center ml-8">
           <input

@@ -3,24 +3,18 @@ import ReactDOM from 'react-dom/client';
 
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import MainLayouts from './Layouts/MainLayouts.jsx';
-import Home from './components/Home.jsx';
-import Blogs from './components/Blogs.jsx';
-import Bookmarks from './components/Bookmarks.jsx';
-import Footer from './components/Footer.jsx';
-
+import MainLayouts from './Layouts/MainLayouts';
+import Home from './components/Home';
+import Blogs from './components/Blogs';
+import Bookmarks from './components/Bookmarks';
 const router = createBrowserRouter([
   {
     path: '/',
-    Element: <MainLayouts></MainLayouts>,
+    element: <MainLayouts></MainLayouts>,
     children: [
       {
         path: '/',
         element: <Home></Home>,
-      },
-      {
-        path: '/',
-        element: <Footer></Footer>,
       },
       {
         path: '/blogs',
@@ -36,6 +30,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
