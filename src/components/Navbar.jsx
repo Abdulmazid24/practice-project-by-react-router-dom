@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [theme, setTheme] = useState('light');
@@ -17,11 +17,12 @@ const Navbar = () => {
     }
   };
   return (
-    <div className="navbar bg-base-100  shadow-lg px-4 z-10 h-14">
+    <div className="navbar bg-base-100  shadow-lg px-4  z-10 h-14">
       <div className="flex-1">
-        <a className="btn btn-ghost gap-0 text-xl font-bold text-secondary">
-          Byte<span className="text-primary">Blaze</span>
-        </a>
+        <Link className="btn btn-ghost gap-0 text-xl font-bold text-secondary">
+          Byte
+          <span className="text-primary">Blaze</span>
+        </Link>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal flex gap-8 font-bold">
@@ -54,7 +55,7 @@ const Navbar = () => {
           <input
             onChange={handleToggle}
             type="checkbox"
-            value="synthwave"
+            value="dark"
             className="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1  "
           />
           <svg
