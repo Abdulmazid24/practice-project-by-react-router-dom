@@ -1,11 +1,13 @@
 import { useLoaderData } from 'react-router-dom';
 import placeholderImg from '../assets/404.jpg';
 
+import Markdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+
 const Content = () => {
   const blogDetails = useLoaderData();
 
-  const { cover_image, description, title, published_at, tags, body_html } =
-    blogDetails;
+  const { cover_image, title, tags, body_html } = blogDetails;
   return (
     <div className=" mx-auto border border-opacity-30 p-2 ">
       <img
@@ -27,7 +29,8 @@ const Content = () => {
       </div>
       <div className="font-medium space-y-2">
         <h3 className="text-2xl font-semibold ">{title}</h3>
-        {body_html}
+
+        <Markdown rehypePlugins={[rehypeRaw]}>{body_html}</Markdown>
       </div>
     </div>
   );
