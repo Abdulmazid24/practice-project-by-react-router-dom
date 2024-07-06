@@ -2,12 +2,13 @@ import { useState } from 'react';
 import { Link, Outlet, useLoaderData } from 'react-router-dom';
 import { MdBookmarkAdd } from 'react-icons/md';
 import { saveBlog } from '../../utils';
+import { Toaster } from 'react-hot-toast';
 
 const Blog = () => {
   const [tabIndex, setTabIndex] = useState(0);
 
-  const blogPage = useLoaderData();
-  console.log(blogPage);
+  const blog = useLoaderData();
+
   const {
     title,
     comments_count,
@@ -16,10 +17,9 @@ const Blog = () => {
     public_reactions_count,
 
     published_at,
-  } = blogPage;
+  } = blog;
   const handleBookmark = blog => {
     saveBlog(blog);
-    console.log(blog);
   };
 
   return (
@@ -90,15 +90,14 @@ const Blog = () => {
 
             {/* Bookmark Linking icon */}
             <div
-              onClick={() => handleBookmark(blogPage)}
-              className="bg-primary p-3 rounded-full hover:bg-opacity-30 bg-opacity-20 text-xl cursor-pointer hover:scale-110 overflow-hidden"
+              onClick={() => handleBookmark(blog)}
+              className="bg-primary p-3 rounded-full hover:bg-opacity-30 bg-opacity-20 text-xl cursor-pointer hover:scale-110 "
             >
-              <Link>
-                <MdBookmarkAdd
-                  size={20}
-                  className="text-secondary"
-                ></MdBookmarkAdd>
-              </Link>
+              <MdBookmarkAdd
+                size={20}
+                className="text-secondary"
+              ></MdBookmarkAdd>
+              <Toaster></Toaster>
             </div>
           </div>
         </div>
